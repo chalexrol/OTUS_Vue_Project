@@ -1,6 +1,5 @@
 <template>
-  <div id="app">
-    <div class="Hello">
+   <div class="Hello">
       <img class="Logo" :src="logo" alt="Vue logo" />
       <h1 class="Hello-Header">Привет!</h1>
        <p class="Hello-Hello">
@@ -35,22 +34,19 @@
               <checkbox name="check[]" value="check_exp" v-model="check_exp"> Возведение в степень
               </checkbox>
            </div>
-        <div class="Hello-Add" @click="login()">Play</div>
+           <div class="Hello-Add">
+                 <router-link  to="/game">PLAY</router-link>
+           </div>
       </div>
     </div>
-  </div>
-</template>
+ </template>
 
 <script>
 
 import Logo from "../assets/logo.png";
 
 export default {
-  props: ['play'],
-  name: "Hello",
-  components: {
- 
-  },
+  name: 'Hello',
   data() {
       return {
       day: 1,
@@ -75,21 +71,8 @@ export default {
       return this.value1 * 1
     }
   },
-
-   
-
-  methods: {
-  
-  login () {
-    this.play=true
-    console.log('login', this.play)
-    this.$emit('login', {
-      play: this.play
-          })
-  }
-   
-  },
 }
+
 </script>
 
 <style>

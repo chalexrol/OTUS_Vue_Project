@@ -1,7 +1,8 @@
 <template>
-  <div id="app">
-    <div class="Game">
-       <div class="Game-Cancel" @click="login()">X ОТМЕНА</div> 
+     <div class="Game">
+        <div class="Game-Cancel" @click="login">
+             <router-link  to="/">X ОТМЕНА</router-link>
+        </div> 
         <div class="Game-Timer"  id="timer">
              <span id="minutes">{{ minutes }}</span>
              <span id="middle">:</span>
@@ -14,15 +15,13 @@
               </div>
          </div>
      </div>
-  </div>
-</template>
+ </template>
 
 <script>
 import Keys from './Keys.vue'
 
 export default {
-  props: ['play'],
-  name: "game",
+  name: 'Game',
   components: {
   Keys  
   },
@@ -76,10 +75,6 @@ export default {
 
     login () {
     this.stopTimer();
-    this.play=false
-    this.$emit('login', {
-      play: this.play
-          })
     }
   }
 };
